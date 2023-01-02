@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% include 'demo_login/navbar.html' %}
+    
+    {%if user.is_authenticated %}
+        <h1 style="text-align: center; text-transform: uppercase; color:violet">Welcome {{user.username}}</h1>
+        <form method="post" action="{% url 'demo_login:add' %}" class="container w-50 mt-5" >
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+              </div>
+              <div class="mb-3">
+                <label for="desc" class="form-label">Description</label>
+                <input type="text" class="form-control" id="desc" name="desc" required>
+              </div>
+              <button type="submit" class="btn btn-primary mb-3">Submit</button>
+        </form>
+        <table class="table table-success table-striped container">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+        {% for todo in todo_list %}
+        <tbody>
+            <tr>
+              <th scope="row">{{forloop.counter}}</th>
+              <td>{{todo.title}}</td>
+              <td>{{todo.description}}</td>
+              <td>
+                <a href="{% url 'demo_login:update' todo.id %}"><button type="button" class="btn btn-success">update</button></a>
+                <a href="{% url 'demo_login:delete' todo.id %}"><button type="button" class="btn btn-danger">Delete</button></a>
+              </td>
+            </tr>
+        </tbody>
+        {% endfor %}
+        </table>
+    {% else %}
+        <h1>user not authenticated</h1>
+    {% endif %}
+</body>
+</html>
