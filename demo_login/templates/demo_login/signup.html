@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+</head>
+
+<body>
+    {% include 'demo_login/navbar.html' %}
+
+    <form method="post" action="{% url 'demo_login:signup' %}" class="container w-50 mt-5">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="uname" class="form-label">Username</label>
+            <input class="form-control" id="uname" type="text" name="uname" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="mail">Email</label>
+            <input class="form-control" id="mail" type="text" name="mail" required>
+        </div>
+        <div class="mb-3">
+            <label for="pass1" class="form-label">Password</label>
+            <input class="form-control" type="password" name="pass1" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="pass2">Confirm</label>
+            <input class="form-control" type="password" name="pass2" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+
+</html>

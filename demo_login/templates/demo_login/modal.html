@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="{% static 'demo_login/m.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    
+    <div id="mymodal" class="modal">
+
+        <div class="modal_content">
+            <span id="close" class="close">&times;</span>
+            <form class="form">
+                <div class="form_element">
+                    <label>username</label>
+                    <input type="text"><br>
+                </div>
+                <div class="form_element">
+                    <label>Password</label>
+                    <input type="text"><br>
+
+                </div>
+
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+    <script src="{% static 'demo_login/main.js' %}" ></script>
+</body>
+
+</html>

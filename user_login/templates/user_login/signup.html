@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="post" action="{% url 'todouser:signup' %}">
+        {% csrf_token %}
+        <label>username</label>
+        <input name="uname" type="text" required><br>
+        <label>email</label>
+        <input name="mail" type="email" required><br>
+        <label>password</label>
+        <input name="pass1" type="password" required><br>
+        <label>confirm</label>
+        <input name="pass2" type="password" required><br>
+        <input type="submit">
+    </form>
+</body>
+</html>
